@@ -1,7 +1,7 @@
 "use strict" // using newer version oj js
 
 //datatypes
-
+console.log("Variables :");
 let a = 123
 let b = "utpal"
 let c = 'Mumbai'
@@ -15,4 +15,7 @@ let energy = undefined;
 this is a multi line comment
 */
 
-console.log(typeof car);
+// console.log(typeof(car));
+console.table([a,b,c,isMarried,car,energy]);
+console.log("Types:");
+console.table([typeof(a),typeof(b),typeof(c),typeof isMarried,typeof car, typeof energy]);
