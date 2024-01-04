@@ -73,3 +73,30 @@ myArray = ["Here is the list of Datatype",{
 console.log("myArray "+myArray);
 console.log((myArray));
 // Similarly we cam check for all other types.
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Memory
+/* Two types of memory 
+1. Stack (primitive) - You get a copy of a variable when u declare it.
+2. Heap (non-primitive) - you get a ref. of original val. and changes gets reflected in original value here
+
+*/
+
+let myYoutubename="Dekho";
+let myNewName=myYoutubename;
+// You got the variables value copy to newName so now two "Dekho exists in stack memory"
+myNewName='PlankTea';
+//Now the other "dekho"  is not prsent n the new value is given to newName.
+
+const myObjOne={
+    uname:"raghu",
+    age:32
+    }
+console.log("One",myObjOne);
+const myObjTwo=myObjOne;
+console.log(`myObjTwo :`,myObjTwo);
+//the val of two is ref. of one, changes in two will reflect in one.
+myObjTwo.age=43;
+console.log('new two',myObjTwo,'old one',myObjOne);
+//both objs age got changed here.
