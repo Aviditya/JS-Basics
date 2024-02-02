@@ -53,4 +53,3 @@ sHalf=natural.splice(1,6);
 console.log('after splice',natural);
 // console.log(natural);
 // Array part one compelted!
-
