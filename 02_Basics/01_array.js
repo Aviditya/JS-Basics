@@ -25,6 +25,7 @@ myArr.unshift(-2)
 console.log(myArr);
 myArr.shift() // removes the 0th element from the array
 console.log(myArr);
+// stack, queue, deque - data structures (deque is one which supports stack ie push pop and queuw ie un/shift)
 
 // questions
 console.log(myArr.includes(9));
@@ -53,3 +54,4 @@ sHalf=natural.splice(1,6);
 console.log('after splice',natural);
 // console.log(natural);
 // Array part one compelted!
+
