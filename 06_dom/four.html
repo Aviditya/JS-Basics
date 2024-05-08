@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Finished</title>
+</head>
+<body style="background-color: #333333; color: aliceblue;">
+    <div>
+        <ul class="languages">
+            <li>Javascript</li>
+        </ul>
+    </div>
+</body>
+<script>
+    function addLang(lang){
+        // create an li element 
+        const li = document.createElement('li')
+        // add text/value in it
+        li.innerHTML=`${lang}`;
+        // append it
+        document.querySelector('.languages').appendChild(li)
+    }
+    addLang('Python')
+
+    // optimise the function as innerHTML is not good for big projects
+    function optAddLang(lang){
+        // create an li element 
+        const li = document.createElement('li')
+        // add value via node creation
+        li.appendChild(document.createTextNode(lang))
+        // u aint trasversing a tree here like in innerHTMl
+        document.querySelector('.languages').appendChild(li)
+    }
+ optAddLang('Golang')
+ optAddLang('Java')
+
+ // Edit
+
+ // select the lang u wanna edit
+ const secondLang = document.querySelector("li:nth-child(2)")
+//  secondLang.innerHTML='Mojo';// not optimized way
+// so create new element and addd the content to it
+const newli=document.createElement('li')
+newli.textContent='Mojo' // innerHTML is better than this :)
+// now replce it
+secondLang.replaceWith(newli)
+
+
+// Edit
+const firstLang=document.querySelector('li:first-child')
+firstLang.outerHTML='<li>Typescript</li>'
+
+// remove
+
+document.querySelector('li:last-child').remove()
+// can store it in variable too!
+
+
+
+
+
+////
+
+    
+</script>
+</html>
