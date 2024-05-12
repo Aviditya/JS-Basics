@@ -11,3 +11,8 @@ Learn JS
 
 **Course resouces** - <https://github.com/hiteshchoudhary/js-hindi-youtube/tree/main>
 
+**Async Javascript fundamentals**
+
+![alt text](image.png)
+
+---

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Events</title>
+</head>
+    <body style="background-color: #414141; color: aliceblue; padding: 15px;">
+        <h2>Amazing Events</h2>
+        <button id="stop">Stop</button>
+</body>
+<script>
+    console.log('Events of JS');
+    const sayUtpal = function(){
+        console.log('Utpal');
+    };
+
+    const changeText = ()=>{
+        document.querySelector('h2').innerHTML="JavaScript's Amazing Events!"
+        console.log('Text Changed');
+    };
+    const addJs = setTimeout(changeText, 3000);
+
+    // To stop setTimeout execution use cleartimeout
+
+    // clearTimeout();
+    // Set cleartimeout on a perticular event
+    let stop = document.querySelector('#stop').addEventListener('click',()=>{
+        clearTimeout(addJs)
+        console.log('Change Stopped!')
+        // cleartimeout needs to know which timeout to cancel, so the timeout must have a ref. var
+    },false)
+
+</script>
+</html>

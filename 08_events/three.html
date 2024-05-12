@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Events</title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue; padding: 15px;">
+    <h2>Welcome to JS</h2>
+    <p id="message"></p>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    console.log('Events Page 3');
+    function hello(str){
+        document.querySelector('#message').append(str)
+    }
+
+    // Define the intervalId variable outside of the event listeners
+    let intervalId;
+
+    // Wrap the setInterval call in an event listener for the "Start" button
+    document.querySelector('#start').addEventListener(
+        'click',
+        () => {
+            intervalId = setInterval(hello, 2000, 'hello! ');
+        },
+        false
+    );
+
+    // Wrap the clearInterval call in an event listener for the "Stop" button
+    document.querySelector('#stop').addEventListener(
+        'click',
+        () => {
+            clearInterval(intervalId);
+        },
+        false
+    );
+</script>
+<!-- below is nonsense :) -->
+<!-- <script>
+    console.log('Events Page 3');
+    function hello(str){
+        document.querySelector('#message').append(str)
+    }
+
+    // const intervalId=()=> setInterval(hello,2000,'hello! ');
+
+    // let start = document.querySelector('#start').addEventListener(
+    //     'click',
+    //     hello(),
+    //     false
+    // )
+     // Correctly passing the clearInterval function to the event listener
+    //  document.querySelector('#start').addEventListener(
+    //     'click',
+    //     intervalId,
+    //     false
+    // )
+    //  document.querySelector('#stop').addEventListener(
+    //     'click',
+    //     () => clearInterval(intervalId), 
+    //     // Using an arrow function to ensure the correct context
+    //     false
+    // )
+
+    // Correctly assigning the interval ID to intervalId
+    const intervalId = setInterval(hello, 2000, 'hello ');
+
+    // Correctly passing the clearInterval function to the event listener
+    document.querySelector('#start').addEventListener(
+        'click',
+        () => clearInterval(intervalId), // This is now correctly clearing the interval
+        false
+    )
+    document.querySelector('#stop').addEventListener(
+        'click',
+        () => clearInterval(intervalId), // This is now correctly clearing the interval
+        false
+    )
+</script> -->
+
+</html>
