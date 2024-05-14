@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Requests!</title>
+</head>
+
+<body>
+    <h1>XHR Requests</h1>
+    <p>
+        <ul>
+        <li>OPENED open() has been called.</li>
+        <li>HEADERS RECEIVED send() has been called, and headers and</li>
+        status are available.
+        <li>LOADING Downloading; responseText holds partial data.</li>
+        <li>DONE The operation is complete.</li>
+        </ul>
+        
+    </p>
+    <hr>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/utpal3000'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl)
+
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            // responseText is a string 
+            const data = JSON.parse(this.responseText)
+            // covereted to JSON
+            console.log(data);
+
+            // Assignment
+            // console.log(data.avatar_url);
+            myName = data.name
+            const div = document.createElement('div');
+            // console.log(div);
+            div.className = 'main';
+            //div.id=Math.round(Math.random()*10+1)
+            div.setAttribute('title', 'generated title')
+            div.style.backgroundColor = 'green'
+            div.style.padding = '12px'
+            // div.innerHTML='DOM Three'
+            // create text to add in div
+            div.innerHTML=`<img src="${data.avatar_url}"width="100" height="100"><br>`
+            const addText = document.createTextNode(` Name: ${data.name}, Followers: ${data.followers}.`)
+            // add it in div
+            div.appendChild(addText)
+            div.style.borderRadius='10px'
+            div.style.margin='5px'
+
+            // Still nothing visible on the page!!
+            // Append the child on body
+
+            //document.body.appendChild(div)
+            document.body.style.padding='10px';
+
+            const button = document.createElement('button');
+            button.innerText='Get user details!'
+
+            document.body.appendChild(button)
+
+            button.addEventListener('click',(e)=>{
+                e.preventDefault();
+                document.body.appendChild(div)
+
+            })
+
+        }
+    }
+    xhr.send();
+    //
+
+
+
+</script>
+
+</html>
