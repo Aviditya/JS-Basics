@@ -15,4 +15,7 @@ Learn JS
 
 ![alt text](image.png)
 
+**Working of Fetch**
+
+![alt text](image-1.png)
 ---
