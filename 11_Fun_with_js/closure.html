@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 5%;
+            padding: 5%;
+        }
+    </style>
+</head>
+<body>
+    <h2>Hello!</h2>
+    <button id="red">Red</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    // Lexical scoping - function k inside function then u can access all parents scope but not childs or siblings scope var.
+
+    function outer(){
+        let username = 'utpal';
+        // console.log(secret); // error - not defined
+        function inner(){
+            let secret = 'my123';
+            console.log("inner",username); // can access parent vars
+        }
+        function innerTwo(){
+            // console.log(secret); // error
+            console.log('innerTwo',username);
+        }
+        inner()
+        innerTwo()
+    }
+    outer()
+</script>
+<script>
+      // Closure
+     // REturn a function inside a function - returns function with its lexical scope
+
+    // document.getElementById('red').onclick=function(){
+    //     document.body.style.backgroundColor = 'red'
+    // }
+    
+    // document.getElementById('green').onclick=function(){
+    //     document.body.style.backgroundColor = 'green'
+    // }
+
+    function clickHandler(color){
+        //document.body.style.backgroundColor = `${color}`
+        return function(){
+            document.body.style.backgroundColor=`${color}`
+        }
+    }
+
+    document.getElementById('red').onclick=clickHandler('red')
+    // You need here to return a fucntion not execute
+
+</script>
+</html>
