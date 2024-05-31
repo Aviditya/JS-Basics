@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    /***
+     * In JavaScript, the bind() method is a powerful tool 
+     * that allows you to control the value of the this keyword within a function. 
+    */
+    class React {
+        constructor(){
+            this.library = 'React';
+            this.server = "https://localhost:3000";
+
+            // requirement
+            document
+            .querySelector('button')
+            .addEventListener('click',this.handleClick
+            .bind(this))// You should pass ref. to function here not call it with handleclick()
+
+        } // Sometimes, the bind() method is used to prevent losing the correct this context.
+        handleClick(){
+            console.log('Button Clicked');
+            console.log(this.server);
+        }
+    }
+
+    const app = new React()
+</script>
+</html>
